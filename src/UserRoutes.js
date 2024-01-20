@@ -8,25 +8,30 @@ const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 
 const MyMoviesPage = lazy(() => import("./pages/MyMoviesPage/MyMoviesPage"));
-const MyFavoriteMoviesPage = lazy(() => import("./pages/MyFavoriteMoviesPage/MyFavoriteMoviesPage"));
+const MyFavoriteMoviesPage = lazy(() =>
+  import("./pages/MyFavoriteMoviesPage/MyFavoriteMoviesPage")
+);
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 const UserRoutes = () => {
-    return (
-        <Suspense fallback={<p>....Load page</p>}>
-            <Routes>
-                <Route element={<PublicRoute />}>
-                    <Route path="/register" element={<RegisterPage />} />
-                    <Route path="/login" element={<LoginPage />} />
-                </Route>
-                <Route element={<PrivateRoute />}>
-                    <Route path="/my-movies" element={<MyMoviesPage />} />
-                    <Route path="/my-favorite-movies" element={<MyFavoriteMoviesPage />} />
-                </Route>
-                <Route path="*" element={<NotFoundPage />} />
-            </Routes>
-        </Suspense>
-    )
-}
+  return (
+    <Suspense fallback={<p>....Load page</p>}>
+      <Routes>
+        <Route element={<PublicRoute />}>
+          <Route path="/signup" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Route>
+        <Route element={<PrivateRoute />}>
+          <Route path="/my-movies" element={<MyMoviesPage />} />
+          <Route
+            path="/my-favorite-movies"
+            element={<MyFavoriteMoviesPage />}
+          />
+        </Route>
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </Suspense>
+  );
+};
 
 export default UserRoutes;
