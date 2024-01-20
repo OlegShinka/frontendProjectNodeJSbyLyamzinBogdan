@@ -27,7 +27,7 @@ instance.interceptors.response.use(
 );
 
 export const register = async (data) => {
-  const { data: result } = await instance.post("/auth/signup", data);
+  const { data: result } = await instance.post("/auth/register", data);
   setToken(result.token);
   return result;
 };

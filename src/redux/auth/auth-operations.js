@@ -3,7 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import * as api from "../../shared/api/auth";
 
 export const register = createAsyncThunk(
-  "auth/signup",
+  "auth/register",
   async (data, { rejectWithValue }) => {
     try {
       const result = await api.register(data);
